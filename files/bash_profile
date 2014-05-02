@@ -1,0 +1,36 @@
+export PATH=/usr/local/heroku/bin:$PATH                               # Heroku Toolbelt
+export PATH=/usr/local/bin:$PATH                                      # Homebrew
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+
+# SSL for Ruby >= 1.9 (http://curl.haxx.se/ca/)
+export SSL_CERT_FILE=/usr/local/etc/cacert.pem
+
+# Sublime as default editor
+export EDITOR=subl
+
+# nicer prompt
+export PS1="\w $ "
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# bundler
+[ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
+
+function reset-pow () {
+    lsof | grep 20560 | awk '{print $2}' | xargs kill -9
+    launchctl unload ~/Library/LaunchAgents/cx.pow.powd.plist
+    launchctl load ~/Library/LaunchAgents/cx.pow.powd.plist
+}
+
+# function prepare-spec () {
+#     bundle
+#     RAILS_ENV=test rake db:schema:load_from_yml
+#     rake parallel:prepare
+#     rake parallel:spec
+# }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

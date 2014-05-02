@@ -1,0 +1,9 @@
+AwesomePrint.defaults = {
+  :indent => -4,
+  :color => {
+    :bignum     => :pale,
+    :fixnum     => :pale,
+    :float      => :pale,
+    :hash       => :greenish
+  }
+}

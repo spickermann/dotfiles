@@ -1,0 +1,24 @@
+require 'logger'
+
+# turn on verbose logging by default
+IRB.conf[:IRB_RC] = Proc.new do
+  if defined?(ActiveRecord::Base)
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+    ActiveRecord::Base.clear_reloadable_connections!
+  end
+end
+
+def by_email(email)
+  User.by_email(email)
+end
+
+# set a nice prompt
+rails_root = File.basename(Dir.pwd)
+IRB.conf[:PROMPT][:RAILS] = { :AUTO_INDENT => true,
+                              :PROMPT_I    => "#{rails_root}  > ",        # normal prompt
+                              :PROMPT_S    => "#{rails_root} %l> ",       # prompt for continuated strings (%l is closing char)
+                              :PROMPT_C    => "#{rails_root}.(> ",        # prompt for continuated statement
+                              :PROMPT_N    => "#{rails_root}    ",        # prompt for indented code
+                              :RETURN      => "#{rails_root} => %s\n" }   # format to return value
+
+IRB.conf[:PROMPT_MODE] = :RAILS
