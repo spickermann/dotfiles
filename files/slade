@@ -1,0 +1,94 @@
+# This is the default .slate file.
+# If no ~/.slate file exists this is the file that will be used.
+
+################################################################
+# Config
+################################################################
+config keyboardLayout qwertz
+
+################################################################
+# Aliases
+################################################################
+
+# Padding
+
+alias padding 2
+
+# Positions
+
+alias positionX0 screenOriginX+${padding}
+alias positionX1 screenOriginX+screenSizeX/9*1+${padding}
+alias positionX2 screenOriginX+screenSizeX/9*2+${padding}
+alias positionX3 screenOriginX+screenSizeX/9*3+${padding}
+alias positionX4 screenOriginX+screenSizeX/9*4+${padding}
+alias positionX5 screenOriginX+screenSizeX/9*5+${padding}
+alias positionX6 screenOriginX+screenSizeX/9*6+${padding}
+alias positionX7 screenOriginX+screenSizeX/9*7+${padding}
+alias positionX8 screenOriginX+screenSizeX/9*8+${padding}
+
+alias positionY0 screenOriginY+${padding}
+alias positionY1 screenOriginY+screenSizeY/9*1+${padding}
+alias positionY2 screenOriginY+screenSizeY/9*2+${padding}
+alias positionY3 screenOriginY+screenSizeY/9*3+${padding}
+alias positionY4 screenOriginY+screenSizeY/9*4+${padding}
+alias positionY5 screenOriginY+screenSizeY/9*5+${padding}
+alias positionY6 screenOriginY+screenSizeY/9*6+${padding}
+alias positionY7 screenOriginY+screenSizeY/9*7+${padding}
+alias positionY8 screenOriginY+screenSizeY/9*8+${padding}
+
+# Sizes
+
+alias sizeX1 screenSizeX/9*1-${padding}*2
+alias sizeX2 screenSizeX/9*2-${padding}*2
+alias sizeX3 screenSizeX/9*3-${padding}*2
+alias sizeX4 screenSizeX/9*4-${padding}*2
+alias sizeX5 screenSizeX/9*5-${padding}*2
+alias sizeX6 screenSizeX/9*6-${padding}*2
+alias sizeX7 screenSizeX/9*7-${padding}*2
+alias sizeX8 screenSizeX/9*8-${padding}*2
+alias sizeX9 screenSizeX-${padding}2
+
+alias sizeY1 screenSizeY/9*1-${padding}*2
+alias sizeY2 screenSizeY/9*2-${padding}*2
+alias sizeY3 screenSizeY/9*3-${padding}*2
+alias sizeY4 screenSizeY/9*4-${padding}*2
+alias sizeY5 screenSizeY/9*5-${padding}*2
+alias sizeY6 screenSizeY/9*6-${padding}*2
+alias sizeY7 screenSizeY/9*7-${padding}*2
+alias sizeY8 screenSizeY/9*8-${padding}*2
+alias sizeY9 screenSizeY-${padding}*2
+
+# Monitors
+
+alias internal 0
+alias external 1
+
+################################################################
+# Layouts
+################################################################
+default single count:1
+default dual   count:2
+
+layout single 'Tower'                move ${positionX0};${positionY2} ${sizeX6};${sizeY7} ${internal}
+layout single 'Google Chrome':REPEAT move ${positionX0};${positionY0} ${sizeX8};${sizeY9} ${internal}
+layout single 'Sublime Text'         move ${positionX1};${positionY0} ${sizeX8};${sizeY9} ${internal}
+layout single 'Calendar'             move ${positionX1};${positionY1} ${sizeX7};${sizeY7} ${internal}
+layout single 'Skype'                move ${positionX1};${positionY1} ${sizeX7};${sizeY7} ${internal}
+layout single 'Slack'                move ${positionX0};${positionY0} ${sizeX7};${sizeY9} ${internal}
+layout single 'Mail'                 move ${positionX1};${positionY0} ${sizeX7};${sizeY9} ${internal}
+layout single 'Terminal'             move ${positionX2};${positionY0} ${sizeX7};${sizeY9} ${internal}
+
+layout dual   'Tower'                move ${positionX0};${positionY3} ${sizeX6};${sizeY6} ${external}
+layout dual   'Google Chrome':REPEAT move ${positionX0};${positionY0} ${sizeX6};${sizeY8} ${external}
+layout dual   'Sublime Text'         move ${positionX1};${positionY0} ${sizeX8};${sizeY9} ${external}
+layout dual   'Calendar'             move ${positionX1};${positionY1} ${sizeX7};${sizeY7} ${internal}
+layout dual   'Skype'                move ${positionX1};${positionY1} ${sizeX7};${sizeY7} ${internal}
+layout dual   'Slack'                move ${positionX0};${positionY0} ${sizeX7};${sizeY9} ${internal}
+layout dual   'Mail'                 move ${positionX1};${positionY0} ${sizeX7};${sizeY9} ${internal}
+layout dual   'Terminal'             move ${positionX2};${positionY0} ${sizeX7};${sizeY9} ${internal}
+
+################################################################
+# Key Bindings
+################################################################
+bind 1:ctrl layout single
+bind 2:ctrl layout dual
